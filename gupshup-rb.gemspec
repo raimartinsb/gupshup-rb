@@ -8,8 +8,8 @@ Gem::Specification.new do |spec|
   spec.name = 'gupshup-rb'
   spec.version = Gupshup::VERSION
   spec.authors       = ['Raimundo Martins']
-  spec.summary       = 'Communication with Chatwoot - Not Completed'
-  spec.description   = 'Communication with Chatwoot - Not Completed'
+  spec.summary       = 'Communication with Chatwoot - Not Completed! Still does not work!'
+  spec.description   = 'Communication with Chatwoot - Not Completed! Still does not work!'
   spec.homepage      = 'https://github.com/raimartinsb/gupshup-rb'
   spec.license       = 'MIT'
   spec.required_ruby_version = '>= 2.6.0'
