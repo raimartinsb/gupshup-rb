@@ -27,6 +27,15 @@ module Gupshup
         @messaging = nil
         @video = nil
       end
+
+      def messages(sid=:unset)
+        self.api.v1.messages(sid)
+      end
+      ##
+      # Provide a user friendly representation
+      def to_s
+        "#<Gupshup::REST::Client #{@src_name}>"
+      end
     end
   end
 end
