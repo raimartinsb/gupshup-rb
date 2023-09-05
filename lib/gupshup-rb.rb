@@ -12,9 +12,13 @@ require 'json'
 require 'gupshup-rb/version' unless defined?(Gupshup::VERSION)
 require 'gupshup-rb/util/configuration'
 
+Dir[File.join(__dir__, 'gupshup-rb/framework/*.rb')].sort.each do |file|
+  require file
+end
+
 module Gupshup
   extend SingleForwardable
-  
+
   autoload :HTTP, File.join(__dir__, 'gupshup-rb', 'http.rb')
   autoload :REST, File.join(__dir__, 'gupshup-rb', 'rest.rb')
 
