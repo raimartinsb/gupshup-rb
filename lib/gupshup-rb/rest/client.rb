@@ -11,11 +11,11 @@ module Gupshup
 
       ##
       # Initializes the Gupshup Client
-      def initialize(username=nil, password=nil, src_name=nil, region=nil, http_client=nil, logger=nil, user_agent_extensions=nil)
-        @src_name = src_name || Gupshup.src_name
-        @api_key = password || Gupshup.api_key
+      def initialize(src_name=nil, api_key=nil)
+        @src_name = src_name
+        @api_key = api_key
         @auth = [@src_name, @api_key]
-        @logger = logger || Gupshup.logger
+        #$@logger = logger || Gupshup.logger
         @user_agent_extensions = user_agent_extensions || []
 
         # Domains
@@ -28,8 +28,10 @@ module Gupshup
         @video = nil
       end
 
-      def messages(sid=:unset)
-        self.api.v1.messages(sid)
+      def messages(to=nil, from=nil, body=nil, api_key=nil, src_name=nil)
+        message_list = Gupshup::REST::Api::V1::MessageList.new('v1', src_name: src_name)
+
+        message_list.create(to: to, from: from, body: body, media_url: '', content_type: 'text', api_key: api_key, src_name: src_name)
       end
       ##
       # Provide a user friendly representation
